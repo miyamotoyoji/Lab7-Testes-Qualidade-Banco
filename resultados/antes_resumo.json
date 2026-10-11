@@ -1,0 +1,23 @@
+[
+  {
+    "grupo": "unitario",
+    "executados": 6,
+    "falhas": 0,
+    "erros": 0,
+    "ignorados": 0
+  },
+  {
+    "grupo": "integracao",
+    "executados": 3,
+    "falhas": 0,
+    "erros": 0,
+    "ignorados": 0
+  },
+  {
+    "grupo": "funcional",
+    "executados": 4,
+    "falhas": 0,
+    "erros": 0,
+    "ignorados": 0
+  }
+]

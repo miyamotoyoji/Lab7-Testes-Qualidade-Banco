@@ -1,0 +1,14 @@
+Etapa: antes
+Grupo: funcional
+UTC: 2026-10-11T20:42:01.984837+00:00
+Python: 3.12.14
+
+test_F01_fluxo_completo_pelo_terminal (tests.test_funcional.TestesFuncionais.test_F01_fluxo_completo_pelo_terminal) ... ok
+test_F02_cliente_inexistente (tests.test_funcional.TestesFuncionais.test_F02_cliente_inexistente) ... ok
+test_F03_entrada_invalida_e_recuperacao (tests.test_funcional.TestesFuncionais.test_F03_entrada_invalida_e_recuperacao) ... ok
+test_F04_cpf_duplicado (tests.test_funcional.TestesFuncionais.test_F04_cpf_duplicado) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.264s
+
+OK

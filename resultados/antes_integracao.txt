@@ -1,0 +1,16 @@
+Etapa: antes
+Grupo: integracao
+UTC: 2026-10-11T20:42:01.964160+00:00
+Python: 3.12.14
+
+test_I01_cliente_transacao_conta_historico (tests.test_integracao.TestesIntegracao.test_I01_cliente_transacao_conta_historico) ... ok
+test_I02_recusa_nao_entra_no_historico (tests.test_integracao.TestesIntegracao.test_I02_recusa_nao_entra_no_historico) ... Operação falhou: valor inválido.
+Operação falhou: saldo insuficiente.
+ok
+test_I03_limite_quantidade_usa_historico (tests.test_integracao.TestesIntegracao.test_I03_limite_quantidade_usa_historico) ... Operação falhou: limite de saques excedido.
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
