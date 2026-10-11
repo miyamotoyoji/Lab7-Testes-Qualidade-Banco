@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from datetime import date, datetime
+from math import isfinite
 
 
 class Transacao(ABC):
@@ -46,6 +47,32 @@ class Historico:
         self._transacoes.append(transacao)
 
 
+class InvestimentoPoupanca(Transacao):
+    def __init__(self, valor):
+        self._valor = valor
+
+    @property
+    def valor(self):
+        return self._valor
+
+    def registrar(self, conta):
+        if conta.investir_poupanca(self.valor):
+            conta.historico.adicionar_transacao(self)
+
+
+class ResgatePoupanca(Transacao):
+    def __init__(self, valor):
+        self._valor = valor
+
+    @property
+    def valor(self):
+        return self._valor
+
+    def registrar(self, conta):
+        if conta.resgatar_poupanca(self.valor):
+            conta.historico.adicionar_transacao(self)
+
+
 class Conta:
     def __init__(self, cliente, numero, agencia):
         self._saldo = 0.0
@@ -53,6 +80,33 @@ class Conta:
         self._agencia = agencia
         self._cliente = cliente
         self._historico = Historico()
+        self._saldo_poupanca = 0.0
+
+    @property
+    def saldo_poupanca(self):
+        return self._saldo_poupanca
+
+    def investir_poupanca(self, valor):
+        if not isfinite(valor) or valor <= 0:
+            print("Operação falhou: valor inválido.")
+            return False
+        if valor > self._saldo:
+            print("Operação falhou: saldo insuficiente.")
+            return False
+        self._saldo -= valor
+        self._saldo_poupanca += valor
+        return True
+
+    def resgatar_poupanca(self, valor):
+        if not isfinite(valor) or valor <= 0:
+            print("Operação falhou: valor inválido.")
+            return False
+        if valor > self._saldo_poupanca:
+            print("Operação falhou: saldo de poupança insuficiente.")
+            return False
+        self._saldo_poupanca -= valor
+        self._saldo += valor
+        return True
 
     @classmethod
     def nova_conta(cls, cliente, numero, agencia):
@@ -259,6 +313,25 @@ def extrato(clientes):
     for t in conta.historico.transacoes:
         print(f"{type(t).__name__}: R$ {t.valor:.2f}")
     print(f"Saldo: R$ {conta.saldo:.2f}")
+    print(f"Poupança: R$ {conta.saldo_poupanca:.2f}")
+
+
+def investir_poupanca(clientes):
+    resultado = buscar_conta(clientes)
+    if resultado is None:
+        return
+    cliente, conta = resultado
+    valor = ler_float("Valor do investimento: ")
+    cliente.realizar_transacao(conta, InvestimentoPoupanca(valor))
+
+
+def resgatar_poupanca(clientes):
+    resultado = buscar_conta(clientes)
+    if resultado is None:
+        return
+    cliente, conta = resultado
+    valor = ler_float("Valor do resgate: ")
+    cliente.realizar_transacao(conta, ResgatePoupanca(valor))
 
 
 def main():
@@ -269,6 +342,8 @@ def main():
         print("3 - Depositar")
         print("4 - Sacar")
         print("5 - Extrato")
+        print("6 - Investir em poupança")
+        print("7 - Resgatar poupança")
         print("0 - Sair")
         opcao = input("Opção: ")
         if opcao == "1":
@@ -281,6 +356,10 @@ def main():
             sacar(clientes)
         elif opcao == "5":
             extrato(clientes)
+        elif opcao == "6":
+            investir_poupanca(clientes)
+        elif opcao == "7":
+            resgatar_poupanca(clientes)
         elif opcao == "0":
             break
         else:

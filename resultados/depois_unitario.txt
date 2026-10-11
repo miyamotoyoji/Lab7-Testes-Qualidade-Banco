@@ -1,0 +1,22 @@
+Etapa: depois
+Grupo: unitario
+UTC: 2026-10-11T20:42:49.471315+00:00
+Python: 3.12.14
+
+test_U01_deposito_positivo (tests.test_unitario.TestesUnitarios.test_U01_deposito_positivo) ... ok
+test_U02_deposito_invalido (tests.test_unitario.TestesUnitarios.test_U02_deposito_invalido) ... Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+ok
+test_U03_saque_valido (tests.test_unitario.TestesUnitarios.test_U03_saque_valido) ... ok
+test_U04_saque_sem_saldo (tests.test_unitario.TestesUnitarios.test_U04_saque_sem_saldo) ... Operação falhou: saldo insuficiente.
+ok
+test_U05_limite_por_saque (tests.test_unitario.TestesUnitarios.test_U05_limite_por_saque) ... Operação falhou: valor excede o limite por saque.
+ok
+test_U06_saque_invalido (tests.test_unitario.TestesUnitarios.test_U06_saque_invalido) ... Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

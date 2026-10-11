@@ -1,0 +1,31 @@
+Etapa: depois
+Grupo: poupanca
+UTC: 2026-10-11T20:42:49.728715+00:00
+Python: 3.12.14
+
+test_P01_investir_preserva_total (tests.test_poupanca.TestesPoupanca.test_P01_investir_preserva_total) ... ok
+test_P02_valores_invalidos_nao_alteram_estado (tests.test_poupanca.TestesPoupanca.test_P02_valores_invalidos_nao_alteram_estado) ... Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+Operação falhou: valor inválido.
+ok
+test_P03_investimento_sem_saldo (tests.test_poupanca.TestesPoupanca.test_P03_investimento_sem_saldo) ... Operação falhou: saldo insuficiente.
+ok
+test_P04_resgate_parcial_e_total (tests.test_poupanca.TestesPoupanca.test_P04_resgate_parcial_e_total) ... ok
+test_P05_resgate_sem_saldo (tests.test_poupanca.TestesPoupanca.test_P05_resgate_sem_saldo) ... Operação falhou: saldo de poupança insuficiente.
+ok
+test_P06_poupanca_nao_consume_limite_saque (tests.test_poupanca.TestesPoupanca.test_P06_poupanca_nao_consume_limite_saque) ... Operação falhou: limite de saques excedido.
+ok
+test_P07_fluxo_funcional_poupanca (tests.test_poupanca.TestesPoupanca.test_P07_fluxo_funcional_poupanca) ... ok
+test_P08_isolamento_entre_contas (tests.test_poupanca.TestesPoupanca.test_P08_isolamento_entre_contas) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.062s
+
+OK
